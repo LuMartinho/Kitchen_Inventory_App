@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row wow fadeIn" data-wow-delay="0.2s">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="jumbotron">
+                <h2 class="h2-responsive">Listing All Of Your Accessories</h2>
+                <br><hr>
+                <p class="text-center"><%= link_to 'Add New Accessories', new_accessory_path, class: "btn btn-info" %></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <% unless @accessories.blank? %>
+    <% @accessories.each do |accessory| %>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-4 col-lg-offset-4"><br/>
+
+                <div class="card card-block" style="background-color:#fff;">
+
+                    <div class="modal-body">
+
+                        <%= image_tag accessory.image.url(:medium) %>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center"><%= link_to accessory.Name, accessory_path(accessory),class: "btn btn-outline-secondary waves-effect" %></p>
+                    </div>
+                </div>
+
+            </div>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+
+</div>
+
+</div>

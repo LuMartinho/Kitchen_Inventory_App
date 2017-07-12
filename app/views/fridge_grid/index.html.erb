@@ -1,0 +1,56 @@
+<main>
+<div class="container">
+    <div class="row wow fadeIn" data-wow-delay="0.2s">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="jumbotron">
+                <h2 class="h2-responsive">Listing All Items Of Your Fridge</h2>
+                <br><hr>
+                <p class="text-center"><%= link_to 'Add New Item', new_fridge_path, class: "btn btn-xs btn-primary" %></p>
+
+                <div class="col-md-12"></div>
+
+            </div>
+        </div>
+    </div>
+
+        <hr class="extra-margins">
+
+        <!--Second row-->
+        <div class="row">
+
+            <div class=col-md-3>
+            <% unless @fridges.blank? %>
+            <% @fridges.each do |fridge| %>
+                <div class="card card-cascade narrower">
+                    <div class="view overlay hm-white-slight">
+                        <%= image_tag(fridge.image.url(:medium), :alt => "Fridge Item", :class => "img-fluid")%>
+                        <a>
+                            <div class="mask waves-effect waves-light"></div>
+                        </a>
+                    </div>
+                    <div class="card-block text-center">
+                        <a href class=text-muted>
+                            <h5><%= fridge.Amount %></h5>
+                        </a>
+                        <h4 class=card-title>
+                            <strong>
+                              <%= link_to fridge.Name, fridge_path(fridge) %>
+                            </strong>
+                        </h4>
+                        <div class=card-footer>
+                            <span class=left><%= fridge.Amount %></span>
+                            <span class=right>
+                                <%= truncate(fridge.Quantity) %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <% end %>
+    </div>
+    <!--/.Main layout-->
+
+</main>
+<% end %>

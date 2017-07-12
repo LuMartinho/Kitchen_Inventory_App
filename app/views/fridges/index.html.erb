@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row wow fadeIn" data-wow-delay="0.2s">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="jumbotron">
+                <h2 class="h2-responsive">Listing All Items Of Your Fridge</h2>
+                <br><hr>
+                <p class="text-center"><%= link_to 'Add New Item', new_fridge_path, class: "btn btn-success btn-rounded2" %></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+
+            <% unless @fridges.blank? %>
+            <% @fridges.each do |fridge| %>
+            <div class="col-md-2"><br/>
+                <div class="login-panel panel panel-default">
+
+                    <div class="panel-body">
+                        <p>
+                            <%= image_tag fridge.image.url(:small) %>
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class=" jumbotron" style="background-color:#fff;">
+
+                <div class="article-title text-left">
+
+                    <%= link_to fridge.Name, fridge_path(fridge) %>
+
+                </div>
+
+                <div class="article-body">
+
+                    <strong>Quantity/Unit Of Item:</strong>
+                    <%= truncate(fridge.Quantity) %><br/>
+                    <strong>Amount Of Item:</strong>
+                    <%= fridge.Amount %>
+
+                </div>
+
+                <div class="article-body">
+
+                    <%= link_to "Edit this Item", edit_fridge_path(fridge), class: "btn btn-outline-info btn-rounded waves-effect btn-sm" %>
+
+                    <%= link_to "Delete this Item", fridge_path(fridge), method: :delete, data: { confirm: "Are You Sure You Want To Delete This Item?"},class: "btn btn-outline-danger btn-rounded waves-effect btn-sm" %>
+
+                </div>
+
+            </div>
+
+            <% end %>
+            <% end %>
+
+        </div>
+
+    </div>
+
+</div>

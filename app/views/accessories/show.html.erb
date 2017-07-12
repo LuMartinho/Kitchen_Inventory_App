@@ -1,0 +1,36 @@
+<div class="container">
+    <%= render 'shared/errors', obj: @accessory %>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-5 col-lg-offset-3"><br/>
+
+                <div class="card card-block" style="background-color:#fff;">
+                    <div class="form-header  purple darken-4" style="background-color:#ff7300 !important;">
+                        <h3>
+                            <i class="fa fa-cutlery "></i>
+                            <%= @accessory.Name %></h3>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p class="text-center"><%= image_tag @accessory.image.url(:large) %></p>
+                    </div>
+                    <div class="modal-footer">
+                      <p class="text-center">
+                            <%= link_to "Update Item", edit_accessory_path(@accessory) %>
+
+                            <%= link_to "View All Items", accessories_path %>
+
+                            <%= link_to "Delete Item", accessory_path(@accessory), method: :delete, data: { confirm: "Are Your Sure You Want To Delete This Item"} %>
+                          </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>

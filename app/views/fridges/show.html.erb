@@ -1,0 +1,72 @@
+<div class="container">
+    <%= render 'shared/errors', obj: @fridge %>
+    <div class="row">
+
+        <div class="login-panel panel panel-default">
+
+            <div class="panel-body">
+
+                <div class="col-md-12 "><br/>
+
+                    <div class="col-md-6"><br/>
+
+                        <div class="card card-block" style="background-color:#fff;">
+                            <div class="form-header  purple darken-4" style="background-color:#00695c !important;">
+                                <h3>
+                                    <i class="fa fa-cutlery "></i>
+                                    <%= @fridge.Name %></h3>
+                            </div>
+
+                            <div class="article-body">
+
+                                <p>
+                                    <strong>Amount of Item:</strong>
+                                    <%= @fridge.Amount %>
+                                </p>
+                                <p>
+                                    <strong>Quantity/Unit Of Item:</strong>
+                                    <%= @fridge.Quantity %>
+                                </p>
+
+                                <p class="text-center" style="text-overflow: ellipsis; overflow: hidden;">
+                                    <strong>Description:</strong><br/>
+                                    <%= @fridge.Description %>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6"><br/>
+                        <div class="card card-block" style="background-color:#fff;">
+
+                            <div class="md-form">
+                                <%= image_tag @fridge.image.url(:medium) %>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer text-center">
+
+                <%= link_to "Update Item", edit_fridge_path(@fridge), class: "btn btn-primary btn-rounded2 btn-sm" %>
+                &nbsp;&nbsp;
+                  <%= link_to "View All Items", fridges_path,class: "btn btn-secondary btn-rounded2 btn-sm"%>
+                  &nbsp;&nbsp;
+                <%= link_to "Delete Item", fridge_path(@fridge), method: :delete, data: { confirm: "Are Your Sure You Want To Delete This Item"}, class: "btn btn-danger btn-rounded2 btn-sm" %>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</div>
