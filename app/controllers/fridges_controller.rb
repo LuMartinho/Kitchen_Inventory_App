@@ -5,6 +5,7 @@ class FridgesController < ApplicationController
     @fridges = Fridge.where(user_id: current_user)
   end
 
+
   def show
   end
 

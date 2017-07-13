@@ -1,5 +1,5 @@
 class FridgeGridController < ApplicationController
   def index
-      @fridges = Fridge.all
+        @fridges = Fridge.where(user_id: current_user)
   end
 end

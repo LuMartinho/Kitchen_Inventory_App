@@ -5,6 +5,10 @@
                 <h2 class="h2-responsive">Listing All Items Of Your Fridge</h2>
                 <br><hr>
                 <p class="text-center"><%= link_to 'Add New Item', new_fridge_path, class: "btn btn-success btn-rounded2" %></p>
+                <hr>
+
+               <%= link_to "Grid", {controller: "fridge_grid", action: "index"}, class: "btn btn-primary btn-rounded2 btn-sm" %>
+               <%= link_to "List", {controller: "fridges", action: "index"}, class: "btn btn-secondary btn-rounded2 btn-sm" %>
 
             </div>
         </div>
@@ -22,8 +26,7 @@
 
                     <div class="panel-body">
 
-                            <%= image_tag fridge.image.url(:small) %>
-
+                        <%= image_tag fridge.image.url(:small) %>
 
                     </div>
                 </div>
